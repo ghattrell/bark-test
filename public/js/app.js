@@ -112,7 +112,7 @@ $(document).ready(function () {
               var $title     = $('<h3>').text(data.payload.saved_entry.full_name);
               var $createdAt = $('<h6>').text(data.payload.saved_entry.created_at)
               var $message   = $('<p>').text(data.payload.saved_entry.message);
-              $('.entries').append($title).append($createdAt).append($message);
+              $('.entries').prepend($message).prepend($createdAt).prepend($title);
 
               alert('Thanks for the feedback!');
               $("#full_name").val("");

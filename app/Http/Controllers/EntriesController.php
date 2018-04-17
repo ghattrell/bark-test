@@ -10,7 +10,7 @@ class EntriesController extends Controller
 {
     public function index()
     {
-        return App::make('SuccessHandler')->send(Entry::all()->toArray());
+        return App::make('SuccessHandler')->send(Entry::orderBy('id', 'desc')->get()->toArray());
     }
 
     public function show(int $entry_id)

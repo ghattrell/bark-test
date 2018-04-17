@@ -10,6 +10,7 @@ class EntriesController extends Controller
 {
     public function index()
     {
+        dd(phpinfo());
         return App::make('SuccessHandler')->send(Entry::all()->toArray());
     }
 

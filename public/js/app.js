@@ -84,7 +84,6 @@ $(document).ready(function () {
       },
       success: function success(data) {
         $.each(data.payload, function (index, entry) {
-          console.log(entry);
           var $title     = $('<h3>').text(entry.full_name);
           var $createdAt = $('<h6>').text(entry.created_at)
           var $message   = $('<p>').text(entry.message);

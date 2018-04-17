@@ -97,36 +97,28 @@ $(document).ready(function () {
   };
 
     $('#submit').click(function() {
-        var name    = $("#full_name").val();
-        var message = $("#comment").val();
-
-        var entry = {
-          'full_name' :name,
-          'message'   : message,
-      };
-
-        console.log(entry);
-
-        $("full_name").prop('required',true);
-        $("comment").prop('required',true);1
-
         $.ajax({
           url: '/api/entries',
+          type: 'POST',
           dataType: 'json',
-          data: entry,
+          data: {
+              full_name : $("#full_name").val(),
+              message   : $("#comment").val(),
+          },
           error: function error(_error) {
             console.log(_error);
           },
           success: function success(data) {
-              var $title     = $('<h3>').text(entry.full_name);
-              var $createdAt = $('<h6>').text(entry.created_at)
-              var $message   = $('<p>').text(entry.message);
+              console.log(data);
+              var $title     = $('<h3>').text(data.payload.saved_entry.full_name);
+              var $createdAt = $('<h6>').text(data.payload.saved_entry.created_at)
+              var $message   = $('<p>').text(data.payload.saved_entry.message);
               $('.entries').append($title).append($createdAt).append($message);
 
-              var name    = undefined;
-              var comment = undefined
-          },
-          type: 'POST'
+              alert('Thanks for the feedback!');
+              $("#full_name").val("");
+              $("#v").val("")
+          }
         });
     });
 

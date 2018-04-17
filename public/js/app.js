@@ -60,45 +60,35 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 88);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 218:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 88:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(89);
-module.exports = __webpack_require__(218);
+__webpack_require__(1);
+module.exports = __webpack_require__(2);
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
 
-/***/ 89:
-/***/ (function(module, __webpack_exports__) {
-
-"use strict";
 $(document).ready(function () {
-  var base_url = 'http://34.244.240.46/';
-
   var loadEntries = function loadEntries() {
     $.ajax({
-      url: base_url + 'api/entries',
+      url: '/api/entries',
       error: function error(_error) {
         $('#info').html('<p>An error has occurred</p>');
       },
       success: function success(data) {
         $.each(data.payload, function (index, entry) {
-          var $title = $('<h3>').text(entry.full_name);
-          var $message = $('<p>').text(entry.message);
-          $('.entries').append($title).append($message);
+          console.log(entry);
+          var $title     = $('<h3>').text(entry.full_name);
+          var $createdAt = $('<h6>').text(entry.created_at)
+          var $message   = $('<p>').text(entry.message);
+          $('.entries').append($title).append($createdAt).append($message);
         });
       },
       type: 'GET'
@@ -108,6 +98,11 @@ $(document).ready(function () {
   loadEntries();
 });
 
-/***/ })
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-/******/ });
+// removed by extract-text-webpack-plugin
+
+/***/ })
+/******/ ]);

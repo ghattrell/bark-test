@@ -109,7 +109,6 @@ $(document).ready(function () {
             console.log(_error);
           },
           success: function success(data) {
-              console.log(data);
               var $title     = $('<h3>').text(data.payload.saved_entry.full_name);
               var $createdAt = $('<h6>').text(data.payload.saved_entry.created_at)
               var $message   = $('<p>').text(data.payload.saved_entry.message);
@@ -117,7 +116,7 @@ $(document).ready(function () {
 
               alert('Thanks for the feedback!');
               $("#full_name").val("");
-              $("#v").val("")
+              $("#comment").val("");
           }
         });
     });

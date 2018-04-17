@@ -10,28 +10,30 @@
 <body>
   <div class="container">
     <h2 style="text-align: center"> George's wonderful guestbook</h2>
-    <!-- Text input-->
-    <div class="form-group">
-      <div class="col-md-12">
-      <label for="name" class="control-label">Please leave your name</label>
-      <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">
-      </div>
-    </div>
+    <!-- <form> -->
+        <!-- Text input-->
+        <div class="form-group">
+          <div class="col-md-12">
+          <label for="name" class="control-label">Please leave your name</label>
+          <input id="full_name" name="full_name" type="text" placeholder="" class="form-control input-md" required="">
+          </div>
+        </div>
 
-    <!-- Textarea -->
-    <div class="form-group">
-      <div class="col-md-12">
-      <label for="name" class="control-label">Comments</label>
-        <textarea class="form-control" id="comment" name="comment">Let us know how we did :)</textarea>
-      </div>
-    </div>
+        <!-- Textarea -->
+        <div class="form-group">
+          <div class="col-md-12">
+          <label for="name" class="control-label">Comments</label>
+            <textarea class="form-control" id="comment" name="comment">Let us know how we did :)</textarea>
+          </div>
+        </div>
 
-    <!-- Button -->
-    <div class="form-group">
-      <div class="col-md-12">
-        <button id="submit button" name="submit button" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
+        <!-- Button -->
+        <div class="form-group">
+          <div class="col-md-12">
+              <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+    <!-- </form> -->
 
     <!-- Previous Entries -->
 

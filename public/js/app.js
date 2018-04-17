@@ -76,11 +76,13 @@ module.exports = __webpack_require__(2);
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+
+
   var loadEntries = function loadEntries() {
     $.ajax({
       url: '/api/entries',
       error: function error(_error) {
-        $('#info').html('<p>An error has occurred</p>');
+        console.log(_error);
       },
       success: function success(data) {
         $.each(data.payload, function (index, entry) {
@@ -93,6 +95,40 @@ $(document).ready(function () {
       type: 'GET'
     });
   };
+
+    $('#submit').click(function() {
+        var name    = $("#full_name").val();
+        var message = $("#comment").val();
+
+        var entry = {
+          'full_name' :name,
+          'message'   : message,
+      };
+
+        console.log(entry);
+
+        $("full_name").prop('required',true);
+        $("comment").prop('required',true);1
+
+        $.ajax({
+          url: '/api/entries',
+          dataType: 'json',
+          data: entry,
+          error: function error(_error) {
+            console.log(_error);
+          },
+          success: function success(data) {
+              var $title     = $('<h3>').text(entry.full_name);
+              var $createdAt = $('<h6>').text(entry.created_at)
+              var $message   = $('<p>').text(entry.message);
+              $('.entries').append($title).append($createdAt).append($message);
+
+              var name    = undefined;
+              var comment = undefined
+          },
+          type: 'POST'
+        });
+    });
 
   loadEntries();
 });

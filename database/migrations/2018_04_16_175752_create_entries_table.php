@@ -17,7 +17,6 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('full_name');
-            $table->string('last_name');
             $table->text('message');
         });
     }
